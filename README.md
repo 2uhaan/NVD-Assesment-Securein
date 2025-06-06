@@ -11,5 +11,5 @@ Data Processing: (Implied, describe if specific processing is done, e.g., parsin
 Demonstration Dataset: Utilizes a representative sample of 10,000 CVEs for efficient demonstration and assessment.
 
 ## Demo
-3 Screenshots are provided with the repo
 
+https://drive.google.com/file/d/19rH4eVlWBWZeoD1Lc8_nUFL6M163Yti4/view?usp=sharing
