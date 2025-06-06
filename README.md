@@ -10,3 +10,6 @@ CVE Data Fetching: Ability to retrieve vulnerability data from the NVD API.
 Data Processing: (Implied, describe if specific processing is done, e.g., parsing JSON, extracting key fields).
 Demonstration Dataset: Utilizes a representative sample of 10,000 CVEs for efficient demonstration and assessment.
 
+## Demo
+3 Screenshots are provided with the repo
+
