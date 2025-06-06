@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="my-4 text-center">NVD CVE Search and Filter</h1>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                Filter CVEs
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="cveIdFilter">CVE ID</label>
+                        <input type="text" class="form-control" id="cveIdFilter" placeholder="e.g., CVE-2023-1234">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="yearFilter">Year</label>
+                        <input type="number" class="form-control" id="yearFilter" placeholder="e.g., 2023" min="1999" max="2099">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="scoreFilter">Min Base Score</label>
+                        <input type="number" class="form-control" id="scoreFilter" placeholder="e.g., 7.5" min="0.0" max="10.0" step="0.1">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="lastModifiedFilter">Last Modified (N Days)</label>
+                        <input type="number" class="form-control" id="lastModifiedFilter" placeholder="e.g., 30" min="1">
+                    </div>
+                </div>
+                <button id="applyFiltersBtn" class="btn btn-primary mr-2">Apply Filters</button>
+                <button id="clearFiltersBtn" class="btn btn-secondary">Clear Filters</button>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-group mb-0">
+                <label for="pageSizeSelect">Results per page:</label>
+                <select id="pageSizeSelect" class="form-control form-control-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <span id="recordCountDisplay" class="text-white bg-info p-2 rounded"></span>
+        </div>
+
+
+        <div class="card shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                CVE List
+                <div id="recordCountDisplay" class="text-white small"></div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>CVE ID</th>
+                                <th class="sortable" data-sort-key="publishedDate">
+                                    Published Date <span class="sort-icon" id="publishedDateSortIcon"></span>
+                                </th>
+                                <th class="sortable" data-sort-key="lastModifiedDate">
+                                    Last Modified Date <span class="sort-icon" id="lastModifiedDateSortIcon"></span>
+                                </th>
+                                <th>Status</th>
+                                <th>CVSS v2 Base Score</th>
+                                <th>Identifier</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cveListBody">
+                            <tr><td colspan="7" class="text-center">Loading CVEs...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="CVE Pagination">
+                    <ul class="pagination justify-content-center" id="paginationControls">
+                        </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
